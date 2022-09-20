@@ -1,0 +1,75 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "express_crud",
+  "dateExported": "2022-09-20T18:12:40.090Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "f49ab8c7-9b5c-4f7d-9d9d-c324b0006c76",
+      "colId": "d1c76c19-5323-4259-b82b-94efea1df77b",
+      "containerId": "",
+      "name": "getAll",
+      "url": "http://localhost:3000/api/v1/todos",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2022-09-20T16:16:39.334Z",
+      "modified": "2022-09-20T16:17:02.607Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "6f6e7635-a1a4-4ff4-9029-e340b3345b88",
+      "colId": "d1c76c19-5323-4259-b82b-94efea1df77b",
+      "containerId": "",
+      "name": "getById",
+      "url": "http://localhost:3000/api/v1/todos/4",
+      "method": "GET",
+      "sortNum": 15000,
+      "created": "2022-09-20T17:40:16.348Z",
+      "modified": "2022-09-20T17:48:50.701Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "d5cd042a-91e0-4f1b-9544-66d1fd732eb9",
+      "colId": "d1c76c19-5323-4259-b82b-94efea1df77b",
+      "containerId": "",
+      "name": "update",
+      "url": "http://localhost:3000/api/v1/todos/4",
+      "method": "PATCH",
+      "sortNum": 17500,
+      "created": "2022-09-20T17:55:08.310Z",
+      "modified": "2022-09-20T18:01:33.372Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"description\": \"take a shower tomorrow\",\n  \"completed\": false\n}",
+        "form": []
+      },
+      "tests": []
+    },
+    {
+      "_id": "65fba7fc-e099-4fc2-a87d-71ea166db7e6",
+      "colId": "d1c76c19-5323-4259-b82b-94efea1df77b",
+      "containerId": "",
+      "name": "create a todo",
+      "url": "http://localhost:3000/api/v1/todos",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2022-09-20T16:31:51.420Z",
+      "modified": "2022-09-20T17:49:10.033Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"description\": \"take a shower\"\n}",
+        "form": []
+      },
+      "tests": []
+    }
+  ]
+}

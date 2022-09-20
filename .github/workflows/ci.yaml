@@ -1,0 +1,27 @@
+name: Continous Integration
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  linting:
+    name: Linting the code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: yarn
+      - name: Run linting
+        run: yarn run lint
+
+  testing:
+    name: Testing the code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: yarn
+      - name: Run tests
+        run: yarn run test:nowatch
