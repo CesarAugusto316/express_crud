@@ -7,12 +7,7 @@ config({
 });
 
 
-const sequelize = new Sequelize((() => {
-  if (process.env.NODE_ENV === 'production') {
-    return process.env.DB_URL_PRO;
-  }
-  return process.env.DB_URL_DEV;
-})(), {
+const sequelize = new Sequelize(process.env.DB_URL, {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
