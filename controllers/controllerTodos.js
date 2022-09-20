@@ -12,7 +12,7 @@ const getAll = async (req, res, next) => {
     if (todos) {
       res.status(200).json({
         status: 'success',
-        message: 'Todo created.',
+        message: 'Todos fetched.',
         todos
       });
     } else {

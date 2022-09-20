@@ -6,10 +6,17 @@ config({
   path: './.env'
 });
 
-const sequelize = new Sequelize(process.env.DB_URL, {
+
+const sequelize = new Sequelize((() => {
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.DB_URL_PRO;
+  }
+  return process.env.DB_URL_DEV;
+})(), {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
+  host: 'dpg-ccd5mtha6gdlhd65quk0-a',
   dialect: 'postgres',
   dialectOptions: {
     ssl: {
