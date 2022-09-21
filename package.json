@@ -7,8 +7,8 @@
     "start": "node app.js",
     "dev": "NODE_ENV=development nodemon app.js",
     "lint": "eslint .",
-    "test": "jest --watchAll",
-    "test:nowatch": "jest",
+    "test": "jest --watchAll --testTimeout=20000",
+    "test:nowatch": "jest --testTimeout=30000",
     "test:coverage": "jest --coverage"
   },
   "keywords": [],
