@@ -6,7 +6,6 @@ config({
   path: './.env'
 });
 
-
 const sequelize = new Sequelize(process.env.DB_URL, {
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
@@ -22,8 +21,6 @@ const sequelize = new Sequelize(process.env.DB_URL, {
 const connectDb = async () => {
   try {
     await sequelize.authenticate();
-    console.log('NODE_ENV:', process.env.NODE_EN)
-    console.log('DB_URL:', process.env.DB_URL)
     console.log('[DB ⚡] connection has been established successfully.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
