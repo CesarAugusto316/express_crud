@@ -11,8 +11,6 @@ const getAll = async (req, res, next) => {
     const todos = await TodoModel.findAll();
     if (todos) {
       res.status(200).json({
-        status: 'success',
-        message: 'Todos fetched.',
         todos
       });
     } else {
@@ -36,8 +34,6 @@ const getById = async (req, res, next) => {
     });
     if (todo) {
       res.status(200).json({
-        status: 'success',
-        message: 'Todo found.',
         todo
       });
     } else {
@@ -57,12 +53,10 @@ const create = async (req, res, next) => {
     const newTodo = await TodoModel.create(req.body);
     if (newTodo) {
       res.status(201).json({
-        status: 'success',
-        message: 'Todo created.',
         todo: newTodo
       });
     } else {
-      next(createError(500, 'Todo cannot be created.'));
+      next(createError(400, 'Todo cannot be created.'));
     }
   } catch (error) {
     next(error);
@@ -87,12 +81,10 @@ const update = async (req, res, next) => {
         .save();
 
       res.status(200).json({
-        status: 'success',
-        message: 'Todo updated.',
         todo
       });
     } else {
-      next(createError(500, 'Todo cannot be updated.'));
+      next(createError(404, 'Todo cannot be updated.'));
     }
   } catch (error) {
     next(error);
@@ -105,10 +97,12 @@ const update = async (req, res, next) => {
  */
 const remove = async (req, res, next) => {
   try {
-    await TodoModel.destroy(req.params.id);
+    await TodoModel.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
     res.status(200).json({
-      status: 'success',
-      message: 'Todo deleted.',
       todo: null
     });
   } catch (error) {
