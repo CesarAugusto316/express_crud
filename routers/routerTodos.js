@@ -1,16 +1,17 @@
 const { Router } = require('express');
 const { controllerTodos } = require('../controllers/controllerTodos.js');
+const { validateToken } = require('../middlewares/validateToken.js');
 
 
 const routerTodo = Router();
 
 routerTodo.route('/')
   .get(controllerTodos.getAll)
-  .post(controllerTodos.create);
+  .post(validateToken, controllerTodos.create);
 
 routerTodo.route('/:id')
-  .get(controllerTodos.getById)
-  .patch(controllerTodos.update)
-  .delete(controllerTodos.remove);
+  .get(validateToken, controllerTodos.getById)
+  .patch(validateToken, controllerTodos.update)
+  .delete(validateToken, controllerTodos.remove);
 
 module.exports = { routerTodo };

@@ -1,8 +1,10 @@
 const express = require('express');
-const { connectDb } = require('./connectDB.js');
 const morgan = require('morgan');
 const cors = require('cors');
-const { routerTodo } = require('./routers/routerTodos');
+const cookieParser = require('cookie-parser');
+const { connectDb } = require('./connectDB.js');
+const { routerTodo } = require('./routers/routerTodos.js');
+const { routerAuth } = require('./routers/routerAuth.js');
 
 
 const app = express();
@@ -13,9 +15,11 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 app.use('/api/v1/todos', routerTodo);
+app.use('/api/v1/auth', routerAuth);
 
 /**
  * 

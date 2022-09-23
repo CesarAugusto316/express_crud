@@ -2,9 +2,7 @@ const { config } = require('dotenv');
 const { Sequelize } = require('sequelize');
 
 
-config({
-  path: './.env'
-});
+config();
 
 const sequelize = new Sequelize(process.env.DB_URL, {
   username: process.env.DB_USER,
@@ -15,7 +13,8 @@ const sequelize = new Sequelize(process.env.DB_URL, {
     ssl: {
       require: true
     }
-  }
+  },
+  logging: false
 });
 
 const connectDb = async () => {
