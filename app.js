@@ -7,9 +7,9 @@ const { routerTodo } = require('./routers/routerTodos.js');
 const { routerAuth } = require('./routers/routerAuth.js');
 
 
+connectDb();
 const app = express();
 const PORT = process.env.PORT || 3_000;
-connectDb();
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));

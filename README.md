@@ -5,6 +5,11 @@
 Express, node, jest testing, supertest, github actions ci/cd postgres, sequelize and much more.
 
 - To create, delete or update a TODO requires authentication.
+- Protected endpoints.
+
+<br>
+
+## Populate .env_sample with your own variables
 
 - yarn
 - yarn dev

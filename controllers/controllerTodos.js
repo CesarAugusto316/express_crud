@@ -7,7 +7,6 @@ const { TodoModel } = require('../models/TodosModel.js');
  * @type {import('express').RequestHandler}
  */
 const getAll = async (req, res, next) => {
-  console.log(req.userPayload);
   try {
     const todos = await TodoModel.findAll();
     if (todos) {
@@ -27,7 +26,6 @@ const getAll = async (req, res, next) => {
  * @type {import('express').RequestHandler}
  */
 const getById = async (req, res, next) => {
-  console.log(req.userPayload);
   try {
     const todo = await TodoModel.findOne({
       where: {
@@ -51,7 +49,6 @@ const getById = async (req, res, next) => {
  * @type {import('express').RequestHandler}
  */
 const create = async (req, res, next) => {
-  console.log(req.userPayload);
   try {
     const newTodo = await TodoModel.create(req.body);
     if (newTodo) {
@@ -71,7 +68,6 @@ const create = async (req, res, next) => {
  * @type {import('express').RequestHandler}
  */
 const update = async (req, res, next) => {
-  console.log(req.userPayload);
   try {
     const todo = await TodoModel.findOne({
       where: {
@@ -100,7 +96,6 @@ const update = async (req, res, next) => {
  * @type {import('express').RequestHandler}
  */
 const remove = async (req, res, next) => {
-  console.log(req.userPayload);
   try {
     await TodoModel.destroy({
       where: {

@@ -45,7 +45,7 @@ const logIn = async (req, res, next) => {
 
       if (hasValidPassword) {
         const payload = { id: user.id, name: user.name };
-        const token = jwt.sign(payload, process.env.JWT_SECRET);
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '3h' });
         res
           .cookie('access_token', token, { httpOnly: true })
           .status(200).json({
@@ -63,14 +63,13 @@ const logIn = async (req, res, next) => {
     next(error);
   }
 };
+
 /**
  * 
  * @type{import('express').RequestHandler}
  */
 const logOut = async (req, res, next) => {
   try {
-    console.log(req.userPayload);
-
     res.clearCookie('access_token').status(200).json({
       message: 'user logout'
     });
